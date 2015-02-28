@@ -1,0 +1,29 @@
+apply plugin: 'groovy'
+apply plugin: "io.ratpack.ratpack-groovy"
+apply plugin: "idea"
+
+version = "1.0-SNAPSHOT"
+
+repositories {
+    jcenter()
+    mavenCentral()
+    maven { url "http://oss.sonatype.org/content/repositories/snapshots/" }
+}
+dependencies {
+    runtime "org.slf4j:slf4j-simple:1.7.5"
+    compile "org.codehaus.groovy:groovy-all:2.4.1"
+    testCompile "org.spockframework:spock-core:1.0-groovy-2.3-SNAPSHOT"
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = "2.3"
+}
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath "io.ratpack:ratpack-gradle:0.9.13"
+    }
+}
